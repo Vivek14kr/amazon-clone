@@ -6,6 +6,10 @@ import { Link } from "react-router-dom";
 export const Home = ()=>{
 
 
+  const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(false);
+
+
   useEffect(()=>{
     fetchdata()
   }, [])
@@ -17,7 +21,8 @@ export const Home = ()=>{
 
 const fetchdata = async () => {
   
-  const baseURL = "https://masaihomework.herokuapp.com/shops";
+  const baseURL =
+    `https://masaihomework.herokuapp.com/shops?_page=${page}&_limit=5`;
   await fetch(baseURL)
     .then((resp) => resp.json())
     .then((dataa) => {
@@ -40,7 +45,7 @@ const handleClick = async (val) => {
 
 const handlePayment = async (val)=>{
  let dummy = []
-  const baseURL = "https://masaihomework.herokuapp.com/shops";
+  const baseURL = `https://masaihomework.herokuapp.com/shops`;
   await fetch(baseURL)
     .then((resp) => resp.json())
     .then((dataa) => {
@@ -67,12 +72,29 @@ const handleFav = (item)=>{
   console.log("sfhesd")
   dispatch(RegFav(item));
 }
+ console.log(data)   
+    const sortLowtoHigh = ()=>{
+        let newdata = data.sort((a,b)=>{
+          
+          return a.price - b.price
+        })
+        console.log(newdata, " newdata ")
+        SetData(newdata)
+    }
+
+    const sortHighToLow = ()=>{
+     let newdata = data.sort((a, b) => {
+       return b.price - a.price;
+     });
+
+     SetData(newdata);
+    }
 
 console.log(datas , "  hbjb data is new")
   return (
     <div style={{ "text-align": "center", "justify-content": "center" }}>
       <Link to="/fav">Go to Fav</Link>
-     
+
       <h1>Sort according to Rating</h1>
       <button
         onClick={(e) => {
@@ -131,9 +153,24 @@ console.log(datas , "  hbjb data is new")
       >
         All
       </button>
+      <h1>Sort according to Price</h1>
+      <button
+        onClick={() => {
+          sortLowtoHigh();
+        }}
+      >
+        Sort: Low To High
+      </button>
+      <button
+        onClick={() => {
+          sortHighToLow();
+        }}
+      >
+        Sort: Hight TO Low
+      </button>
       <div style={{ "margin-left": "34%" }}>
         {data.map((item) => (
-          <div style={{ border: "1px solid black", width: "50%" }}>
+          <div style={{ border: "1px solid black", width: "50%", marginTop:"30px" }}>
             <div style={{ display: "flex" }}>
               <img
                 src={item.img_src}
@@ -184,7 +221,10 @@ console.log(datas , "  hbjb data is new")
             <button>Order Online</button>
           </div>
         ))}
+
       </div>
+      <button onClick={()=> setPage((p)=> p - 1)} disabled={loading || page===1}>PREV</button>
+      <button onClick={()=> setPage((p)=> p +1)}>NEXT</button>
     </div>
   );
 }
