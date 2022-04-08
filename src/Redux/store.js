@@ -1,12 +1,9 @@
 import { createStore, combineReducers } from "redux";
 
-
 import { regFav } from "./reducer";
 
-
 const rootReducer = combineReducers({
-  regState: regFav
+  regState: regFav,
 });
 
-export const store = createStore(
-  rootReducer);
+export const store = createStore(rootReducer);

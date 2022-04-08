@@ -1,6 +1,4 @@
-import {REGISTER_FAV } from "./actionTypes";
-
-
+import { REGISTER_FAV } from "./actionTypes";
 
 export const RegFav = (message) => {
   return {
@@ -10,10 +8,10 @@ export const RegFav = (message) => {
   };
 };
 
-export const RemoveFav = (message )=>{
-      return {
-        type: REGISTER_FAV,
+export const RemoveFav = (message) => {
+  return {
+    type: REGISTER_FAV,
 
-        payload: message,
-      };
-}
+    payload: message,
+  };
+};
