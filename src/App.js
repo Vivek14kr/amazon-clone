@@ -5,13 +5,15 @@ import { Route, Routes } from "react-router-dom";
 
 import { Home } from "./Components/Home";
 import { Fav } from "./Components/Fav";
+import { User } from "./Components/User";
 
 function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/fav" element={<Fav/>}></Route>
+        <Route path="/registration/one" element={<Home />}></Route>
+        <Route path="/registration/two" element={<Fav />}></Route>
+        <Route path="/Users" element={<User />}></Route>
       </Routes>
     </div>
   );

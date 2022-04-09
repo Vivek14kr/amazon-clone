@@ -1,230 +1,72 @@
-import { useEffect, useState } from "react"
-import { useDispatch, useSelector } from "react-redux";
-import { RegFav } from "../Redux/actions";
+
+import { useContext, useState } from "react";
+
+import { useNavigate, useLocation } from "react-router-dom";
+
+import { AuthContext } from "../Contexts/AuthContext";
 import { Link } from "react-router-dom";
-
-export const Home = ()=>{
-
-
-  const [page, setPage] = useState(1);
-  const [loading, setLoading] = useState(false);
-
-
-  useEffect(()=>{
-    fetchdata()
-  }, [])
-
-  let [data, SetData] = useState([])
-  const dispatch = useDispatch();
-
-  const { datas } = useSelector((state) => state.regState);
-
-const fetchdata = async () => {
-  
-  const baseURL =
-    `https://masaihomework.herokuapp.com/shops?_page=${page}&_limit=5`;
-  await fetch(baseURL)
-    .then((resp) => resp.json())
-    .then((dataa) => {
-      SetData(dataa);
-      
-    });
-};
-const handleClick = async (val) => {
-  let dummy = []
-  const baseURL = "https://masaihomework.herokuapp.com/shops";
-  await fetch(baseURL)
-    .then((resp) => resp.json())
-    .then((dataa) => {
-      dummy = dataa
-    });
-
-   let newdata = dummy.filter(item => item.rating >val)
-   SetData(newdata)
-};
-
-const handlePayment = async (val)=>{
- let dummy = []
-  const baseURL = `https://masaihomework.herokuapp.com/shops`;
-  await fetch(baseURL)
-    .then((resp) => resp.json())
-    .then((dataa) => {
-      dummy = dataa
-    });
-    let newdata
-if (val == "cash"){
-    newdata = dummy.filter((item) => 
-   item.payment_methods.cash === true);
-}else if (val == "card"){
-  newdata = dummy.filter((item)=>
-  item.payment_methods.card == true)
-}else {
-    newdata = dummy.filter(
-      (item) =>
-        item.payment_methods.card == true && item.payment_methods.cash === true
-    );
-}
-
-   SetData(newdata)
-}
-
-const handleFav = (item)=>{
-  console.log("sfhesd")
-  dispatch(RegFav(item));
-}
- console.log(data)   
-    const sortLowtoHigh = ()=>{
-        let newdata = data.sort((a,b)=>{
-          
-          return a.price - b.price
-        })
-        console.log(newdata, " newdata ")
-        SetData(newdata)
+import "./Home.css"
+export const Home = () => {
+   const { handleChange, form, setForm , allow, setAllow} = useContext(AuthContext);
+ 
+ const navigate = useNavigate()
+   const handleCheck = (e)=>{
+     e.preventDefault()
+    let {name, age, DOB} = form;
+    console.log(name, age, DOB)
+    if (name == undefined|| age == 0 || age == undefined|| DOB == undefined){
+     alert("Please Write all Fields")
+      setAllow(true)
+     navigate("/registration/one")
+      return
     }
-
-    const sortHighToLow = ()=>{
-     let newdata = data.sort((a, b) => {
-       return b.price - a.price;
-     });
-
-     SetData(newdata);
-    }
-
-console.log(datas , "  hbjb data is new")
+   setAllow(false)
+navigate("/registration/two")
+   return
+  }
+ 
+  console.log(form, " dfdf")
   return (
-    <div style={{ "text-align": "center", "justify-content": "center" }}>
-      <Link to="/fav">Go to Fav</Link>
+    <div className="firstform">
+      <form action="">
+        <label className="labelname" htmlFor="">
+          Name
+        </label>
+        <br />
+        <input
+          className="inputstyle"
+          type="text"
+          name="name"
+          onChange={handleChange}
+          id=""
+        />
+        <br />
+        <label className="labelname" htmlFor="">
+          Age
+        </label>
+        <br />
+        <input
+          onChange={handleChange}
+          className="inputstyle"
+          type="number"
+          name="age"
+        />
+        <br />
+        <label className="labelname" htmlFor="">
+          DOB
+        </label>
+        <br />
+        <input
+          onChange={handleChange}
+          className="inputstyle"
+          type="text"
+          name="DOB"
+        />
+      </form>
 
-      <h1>Sort according to Rating</h1>
-      <button
-        onClick={(e) => {
-          handleClick(e.target.value);
-        }}
-        value="1"
-      >
-        1
-      </button>
-      <button
-        onClick={(e) => {
-          handleClick(e.target.value);
-        }}
-        value="2"
-      >
-        2
-      </button>
-      <button
-        onClick={(e) => {
-          handleClick(e.target.value);
-        }}
-        value="3"
-      >
-        3
-      </button>
-      <button
-        onClick={(e) => {
-          handleClick(e.target.value);
-        }}
-        value="4"
-      >
-        4
-      </button>
-      <h2>Types of Payment</h2>
-      <button
-        onClick={(e) => {
-          handlePayment(e.target.value);
-        }}
-        value="cash"
-      >
-        Cash Only
-      </button>
-      <button
-        onClick={(e) => {
-          handlePayment(e.target.value);
-        }}
-        value="card"
-      >
-        Card ONly
-      </button>
-      <button
-        onClick={(e) => {
-          handlePayment(e.target.value);
-        }}
-        value="both"
-      >
-        All
-      </button>
-      <h1>Sort according to Price</h1>
-      <button
-        onClick={() => {
-          sortLowtoHigh();
-        }}
-      >
-        Sort: Low To High
-      </button>
-      <button
-        onClick={() => {
-          sortHighToLow();
-        }}
-      >
-        Sort: Hight TO Low
-      </button>
-      <div style={{ "margin-left": "34%" }}>
-        {data.map((item) => (
-          <div style={{ border: "1px solid black", width: "50%", marginTop:"30px" }}>
-            <div style={{ display: "flex" }}>
-              <img
-                src={item.img_src}
-                alt=""
-                srcset=""
-                style={{
-                  height: "110px",
-                  marginBottom: "20px",
-                  width: "100px",
-                }}
-              />
-              <div>
-                <div style={{ textAlign: "left", marginLeft: "10px" }}>
-                  <b>{item.res_name}</b>
-                  <div style={{ display: "flex" }}>
-                    {item.categories.map((it) => (
-                      <p
-                        style={{
-                          "margin-left": "5px",
-                          "margin-bottom": "0px",
-                          paddingBottom: "0px",
-                        }}
-                      >
-                        {it}
-                      </p>
-                    ))}
-                  </div>
-                  <p style={{ margin: "0px", padding: "0px" }}>
-                    Cost {item.price} for one
-                  </p>
-                  <p>
-                    Online Payment :{" "}
-                    {item.onlinepayment == true ? (
-                      <p> Available</p>
-                    ) : (
-                      <p>Not Available</p>
-                    )}
-                  </p>
-                </div>
-              </div>
-              <div style={{ "margin-left": "10px" }}>
-                <div>{item.rating}</div>
-                <p>{item.votes} votes</p>
-                <p>{item.reviews} reviews</p>
-              </div>
-            </div>
-            <button onClick={() => handleFav(item)}>Add to Favorites</button>
-            <button>Order Online</button>
-          </div>
-        ))}
-
-      </div>
-      <button onClick={()=> setPage((p)=> p - 1)} disabled={loading || page===1}>PREV</button>
-      <button onClick={()=> setPage((p)=> p +1)}>NEXT</button>
+     
+        <button onClick={handleCheck} className="labelname btnstyle">Next</button>
+      
     </div>
   );
-}
+};
