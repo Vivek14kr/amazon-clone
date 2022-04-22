@@ -10,7 +10,7 @@ export const Login = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate()
 
-  const { user } = useSelector((state) => state.data);
+  const { user } = useSelector((state) => state.regState);
 
   let dispatch = useDispatch();
   

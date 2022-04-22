@@ -5,24 +5,22 @@ const initialState = {
   basket: [],
   user: null,
   error: null,
-  productss:[],
+ 
 };
 
- const basketReducer = (state = initialState, action) => {
+export const basketReducer = (state = initialState, action) => {
   switch (action.type) {
 
-    case types.PRODUCTS:
-      
-      return {
-        ...state,
-        productss:action.payload
-      }
     case types.ADD_TO_BASKET:
-      const newBasket = [...state.basket, action.payload];
+
+
+      let addbasket = [...state.basket]
+      addbasket.push(action.payload)
       return {
         ...state,
-        basket: newBasket,
-      };
+       basket: addbasket
+      }
+      
     case types.REMOVE_FROM_BASKET:
       let updatedBasket = [...state.basket];
       const index = state.basket.findIndex(
@@ -77,4 +75,3 @@ const initialState = {
   }
 };
 
-export default basketReducer

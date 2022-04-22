@@ -8,7 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { logOutInitiate } from "../../redux/actions";
 
 const Header = () => {
-  const { user, basket } = useSelector((state) => state.data);
+  const { user, basket } = useSelector((state) => state.regState);
 
   let dispatch = useDispatch();
   const handleAuth = () => {

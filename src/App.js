@@ -6,8 +6,7 @@ import Headerr from "./pages/Header/Header";
 import Home from "./pages/Home/Home";
 import { Login } from "./pages/Login/Login";
 import { Orders } from "./pages/Orders/Orders";
-import { Payment } from "./pages/Payment/Payment";
-import { Productlist } from "./pages/Productlist/Productlist";
+import { Payment } from "./pages/Payment/Payment";import { Productlist } from "./pages/Productlist/Productlist";
 import { Register } from "./pages/Register/Register";
 import { SingleProduct } from "./pages/SingleProduct/SingleProduct";
 
@@ -27,13 +26,11 @@ function App() {
           <Route path="/product/:id" element={<SingleProduct/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/register" element={<Register/>}/>
-          <Route path="/header" element={<Headerr/>}/>
-          <Route path="/products" element={<Productlist/>}/>
-       <Route path="/orders" element={<Orders/>}/>
+          <Route path="/header" element={<Headerr/>}/>      <Route path="/orders" element={<Orders/>}/>
        <Route path="/payment" element={<Payment/>}/>
        <Route path="/checkout" element={<Checkout/>}/>
-       <Route path="/productslist" element={<Productlist/>}/>
-        </Routes>
+       <Route path="/products" element={<Productlist/>}/>
+       </Routes>
 
 
     </div>

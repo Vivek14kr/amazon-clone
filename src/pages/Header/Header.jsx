@@ -8,7 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { logOutInitiate } from "../../redux/actions";
 
 const Headerr = () => {
-  const { user, basket } = useSelector((state) => state.data);
+  const { user, basket } = useSelector((state) => state.regState);
 
   let dispatch = useDispatch();
   const handleAuth = () => {
@@ -16,6 +16,7 @@ const Headerr = () => {
       dispatch(logOutInitiate());
     }
   };
+  console.log(basket)
   return (
     <nav className="header">
       <Link to="/">
@@ -38,7 +39,7 @@ const Headerr = () => {
           <option>All</option>
         </select>
         <input type="text" className="searchInput" />
-        <Link to="/productslist">
+        <Link to="/products">
           <SearchIcon className="searchIcon" />
         </Link>
       </div>

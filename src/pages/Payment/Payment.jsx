@@ -7,8 +7,7 @@ import { getBasketTotal } from "../../utils/BasketTotal";
 import { useNavigate, Link } from "react-router-dom";
 
 export const Payment = () => {
-  const { basket, user } = useSelector((state) => state.data);
-
+  const { user, basket } = useSelector((state) => state.regState);
   let dispatch = useDispatch();
 
  const navigate = useNavigate()

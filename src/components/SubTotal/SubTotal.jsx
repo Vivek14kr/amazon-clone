@@ -6,7 +6,7 @@ import { useNavigate} from "react-router-dom";
 import { getBasketTotal } from "../../utils/BasketTotal";
 
 export const SubTotal = () => {
-  const { basket, user } = useSelector((state) => state.data);
+  const { basket, user } = useSelector((state) => state.regState);
 
   let navigate = useNavigate()
 

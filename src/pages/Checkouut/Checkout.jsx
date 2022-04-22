@@ -5,7 +5,7 @@ import {CheckoutProduct} from "../../components/CheckoutProduct/CheckoutProduct"
 import {SubTotal} from "../../components/SubTotal/SubTotal";
 
 export const Checkout = () => {
-  const { basket, user } = useSelector((state) => state.data);
+    const { user, basket } = useSelector((state) => state.regState);
   return (
     <div className="checkout">
       <div className="checkout-left">

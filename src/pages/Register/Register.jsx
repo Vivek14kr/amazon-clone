@@ -9,7 +9,7 @@ export const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 const navigate = useNavigate()
-  const { user } = useSelector((state) => state.data);
+  const { user } = useSelector((state) => state.regState);
 
  
   let dispatch = useDispatch();

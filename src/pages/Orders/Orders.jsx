@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import CurrencyFormat from "react-currency-format";
 
 export const Orders = () => {
-  const { basket, user } = useSelector((state) => state.data);
+   const { user, basket } = useSelector((state) => state.regState);
   const [orders, setOrders] = useState([]);
   const [total, setTotal] = useState(0);
 

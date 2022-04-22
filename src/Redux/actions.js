@@ -1,70 +1,86 @@
-import * as types from "./actionTypes";
+
 import { auth } from "../utils/firebase";
+import {REGISTER_SUCCESS, REGISTER_START,ADD_TO_BASKET, PRODUCTS, REMOVE_FROM_BASKET, REGISTER_FAIL, LOGIN_START, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_START, LOGOUT_SUCCESS, LOGOUT_FAIL, SET_USER, SET_BASKET_EMPTY } from "./actionTypes";
 
-export const addToBasket = (item) => ({
-  type: types.ADD_TO_BASKET,
+export const addToBasket = (item) => {
+ return  {
+  type: ADD_TO_BASKET,
   payload: item,
-});
+}};
 
-export const addProduct = (item) =>({
-  type: types.PRODUCTS,
+export const addProduct = (item) =>{
+  return {
+  type: PRODUCTS,
   payload:item,
-})
+}
+};
 
-export const removeFromBasket = (id) => ({
-  type: types.REMOVE_FROM_BASKET,
+export const removeFromBasket = (id) => {
+  return {
+  type: REMOVE_FROM_BASKET,
   payload: id,
-});
+}}
 
-const registerStart = () => ({
-  type: types.REGISTER_START,
-});
+const registerStart = () => 
+{return {
+  type: REGISTER_START
+}}
 
-const registerSuccess = (user) => ({
-  type: types.REGISTER_SUCCESS,
+const registerSuccess = (user) => {
+  return {
+  type: REGISTER_SUCCESS,
   payload: user,
-});
+}}
 
-const registerError = (error) => ({
-  type: types.REGISTER_FAIL,
+const registerError = (error) => {
+  return {
+  type: REGISTER_FAIL,
   payload: error,
-});
+}};
 
-const loginStart = () => ({
-  type: types.LOGIN_START,
-});
+const loginStart = () => {
+  return {
+  type: LOGIN_START,
+}}
 
-const loginSuccess = (user) => ({
-  type: types.LOGIN_SUCCESS,
+const loginSuccess = (user) => {
+  return {
+  type: LOGIN_SUCCESS,
   payload: user,
-});
+}}
 
-const loginError = (error) => ({
-  type: types.LOGIN_FAIL,
+const loginError = (error) => {
+  return {
+  type: LOGIN_FAIL,
   payload: error,
-});
+}}
 
-const logoutStart = () => ({
-  type: types.LOGOUT_START,
-});
+const logoutStart = () => {
+  return {
+  type: LOGOUT_START
+}}
 
-const logoutSuccess = () => ({
-  type: types.LOGOUT_SUCCESS,
-});
+const logoutSuccess = () => {
+  return {
+  type: LOGOUT_SUCCESS
+}}
 
-const logoutError = (error) => ({
-  type: types.LOGOUT_FAIL,
+const logoutError = (error) => {
+  return {
+  type: LOGOUT_FAIL,
   payload: error,
-});
+}}
 
-export const setuser = (user) => ({
-  type: types.SET_USER,
+export const setuser = (user) => {
+  return {
+  type: SET_USER,
   payload: user,
-});
+}}
 
-export const setBasketEmpty = () => ({
-  type: types.SET_BASKET_EMPTY,
-});
+export const setBasketEmpty = () => {
+  return {
+  type: SET_BASKET_EMPTY
+}}
 
 export const registerInitiate = (email, password) => {
   return function (dispatch) {
