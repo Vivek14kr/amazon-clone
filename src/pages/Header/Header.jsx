@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logOutInitiate } from "../../redux/actions";
 
-const Headerr = () => {
+export const Headerr = () => {
   const { user, basket } = useSelector((state) => state.regState);
 
   let dispatch = useDispatch();
@@ -76,5 +76,3 @@ const Headerr = () => {
     </nav>
   );
 };
-
-export default Headerr;

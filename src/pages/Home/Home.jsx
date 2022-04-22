@@ -15,7 +15,7 @@ import Headerr from "../Header/Header";
 import BackToTop from "./BacToTop";
 
 
-const Home = () => {
+export const Home = () => {
   const bannerImages = [Banner1, Banner2, Banner3, Banner4, Banner5, Banner6];
   return (
     <div>
@@ -77,4 +77,3 @@ const Home = () => {
   );
 };
 
-export default Home;
