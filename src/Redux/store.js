@@ -1,9 +1,16 @@
-import { createStore, combineReducers } from "redux";
+import { createStore, applyMiddleware } from "redux";
+import logger from "redux-logger";
+import thunk from "redux-thunk";
+import { persistStore } from "redux-persist";
 
-import { regFav } from "./reducer";
+import rootReducer from "./root-reducer";
 
-const rootReducer = combineReducers({
-  regState: regFav,
-});
+const middleware = [thunk];
 
-export const store = createStore(rootReducer);
+if (process.env.NODE_ENV === "development") {
+  middleware.push(logger);
+}
+
+export const store = createStore(rootReducer, applyMiddleware(...middleware));
+
+export const persistor = persistStore(store);

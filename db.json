@@ -1,0 +1,164 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "category": "Electronics",
+      "name": "LG Tv 42 inch",
+      "price": 21999,
+      "real_price": "25,999",
+      "img": "http://www.lg.com/us/images/tvs/md05802269/gallery/medium01.jpg"
+    },
+    {
+      "id": 2,
+      "category": "Electronics",
+      "name": "Samsung Tv 40 inch",
+      "price": 20999,
+      "real_price": "24,999",
+      "img": "http://www.220-electronics.com/media/catalog/product/s/o/sony-kdl55hx750multi-system-tv-angle_1.png"
+    },
+    {
+      "id": 3,
+      "category": "Electronics",
+      "name": "Panasonic Tv",
+      "price": 19999,
+      "real_price": "22,999",
+      "img": "https://images-na.ssl-images-amazon.com/images/I/61Ekm1BJYbL._SX355_.jpg"
+    },
+    {
+      "id": 4,
+      "category": "Electronics",
+      "name": "Sony Tv 50 inch",
+      "price": 28999,
+      "real_price": "35,999",
+      "img": "https://m.media-amazon.com/images/I/915X01--m2S._SX679_.jpg"
+    },
+    {
+      "id": 5,
+      "category": "Electronics",
+      "name": "Sharp Tv",
+      "price": 29999,
+      "real_price": "34,999",
+      "img": "https://m.media-amazon.com/images/I/81IYJG9LSgS._SX679_.jpg"
+    },
+    {
+      "id": 6,
+      "category": "Electronics",
+      "name": "Toshiba Tv",
+      "price": 32999,
+      "real_price": "36,999",
+      "img": "http://www.1a20.com/wp-content/uploads/2012/11/4758734_S1E2.png"
+    },
+    {
+      "id": 7,
+      "category": "Electronics",
+      "name": "Vizio Tv",
+      "price": 51999,
+      "real_price": "79,999",
+      "img": "https://m.media-amazon.com/images/I/71F0j4xzGiL._SX679_.jpg"
+    },
+    {
+      "id": 8,
+      "category": "Furniture",
+      "name": "Bean Bag",
+      "price": 2999,
+      "real_price": "3,999",
+      "img": "http://www.coolbeanbags.in/image/cache/data/Processed%20Images/Classic%20bean%20bags/bean-bag-purple-500x500.png"
+    },
+    {
+      "id": 9,
+      "category": "Furniture",
+      "name": "Sofa Set",
+      "price": 20000,
+      "real_price": "23,999",
+      "img": "https://m.media-amazon.com/images/I/91ux6xHP3NL._SX679_.jpg"
+    },
+    {
+      "id": 10,
+      "category": "Furniture",
+      "name": "Almirah",
+      "price": 11500,
+      "real_price": "15,999",
+      "img": "https://img3.exportersindia.com/product_images/bc-small/dir_150/4491558/stainless-steel-almirah-1506398699-3355017.jpeg"
+    },
+    {
+      "id": 11,
+      "category": "Furniture",
+      "name": "Bed",
+      "price": 45000,
+      "real_price": "55,999",
+      "img": "http://pngimg.com/uploads/bed/bed_PNG17401.png"
+    },
+    {
+      "id": 12,
+      "category": "Furniture",
+      "name": "Office Chair",
+      "price": 6999,
+      "real_price": "15,999",
+      "img": "http://www.freepngimg.com/thumb/chair/4-office-chair-png-image-thumb.png"
+    },
+    {
+      "id": 13,
+      "category": "Furniture",
+      "name": "Dining Table",
+      "price": 16999,
+      "real_price": "25,999",
+      "img": "https://m.media-amazon.com/images/I/61oFa1MUDcS._SX679_.jpg"
+    },
+    {
+      "id": 14,
+      "category": "HomeAppliance",
+      "name": "Iron",
+      "price": 1999,
+      "real_price": "5,999",
+      "img": "https://m.media-amazon.com/images/I/61iXwxCYayL._SX679_.jpg"
+    },
+    {
+      "id": 15,
+      "category": "HomeAppliance",
+      "name": "Mixer Juicer",
+      "price": 8999,
+      "real_price": "15,999",
+      "img": "https://images.philips.com/is/image/PhilipsConsumer/HL7715_00-IMS-en_IN?wid=494&hei=435&$pnglarge$"
+    },
+    {
+      "id": 16,
+      "category": "HomeAppliance",
+      "name": "Food Processor",
+      "price": 4999,
+      "real_price": "5,999",
+      "img": "https://images-na.ssl-images-amazon.com/images/I/71jT8sUbriL._AC_SL1500_.jpg"
+    },
+    {
+      "id": 17,
+      "category": "HomeAppliance",
+      "name": "Microwave",
+      "price": 10000,
+      "real_price": "11,999",
+      "img": "http://www.pngpix.com/wp-content/uploads/2016/04/Black-Microwave-Oven-PNG-image.png"
+    },
+    {
+      "id": 18,
+      "category": "HomeAppliance",
+      "name": "Sandwich Maker",
+      "price": 1800,
+      "real_price": "2,999",
+      "img": "http://www.pngpix.com/wp-content/uploads/2016/04/Sandwich-Maker-and-Grill-PNG-image-500x453.png"
+    },
+    {
+      "id": 19,
+      "category": "HomeAppliance",
+      "name": "Air Fryer",
+      "price": 5500,
+      "real_price": "5,999",
+      "img": "https://m.media-amazon.com/images/I/71yccRoQBeL._SX679_.jpg"
+    },
+    {
+      "id": 20,
+      "category": "HomeAppliance",
+      "name": "Playstation",
+      "price": 36000,
+      "real_price": "40,999",
+      "img": "https://m.media-amazon.com/images/I/81yypSRNAsL._SX679_.jpg"
+    }
+  ]
+}
