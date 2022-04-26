@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import { headerItems, products } from "../../utils/ProductsData";
 import React from "react";
-
+import {addProduct} from "../../redux/actions"
 import SearchIcon from "@material-ui/icons/Search";
 import LocationOnOutlinedIcon from "@material-ui/icons/LocationOnOutlined";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
@@ -19,7 +19,7 @@ export const Productlist = () => {
   useEffect(() => {
     fetchData1();
   }, []);
-  const { user, basket } = useSelector((state) => state.regState);
+  const { user, basket, productss } = useSelector((state) => state.regState);
   console.log(basket, " data is  there");
   let dispatch = useDispatch();
 
@@ -28,10 +28,12 @@ export const Productlist = () => {
     await fetch(baseURL)
       .then((resp) => resp.json())
       .then((dataa) => {
-        settrackData(dataa.products);
+
+        dispatch(addProduct(dataa.products))
+        
       });
   };
-  console.log(trackdata)
+  console.log(productss)
 
   const handleSort = async (e) => {
     e.preventDefault();
@@ -40,7 +42,7 @@ export const Productlist = () => {
       .then((resp) => resp.json())
       .then((dataa) => {
         let k = dataa.products.filter((item) => item.category === e.target.value);
-        settrackData(k);
+           dispatch(addProduct(k));
       });
   };
 
@@ -58,7 +60,7 @@ export const Productlist = () => {
           }
           return 0;
         });
-        settrackData(k);
+         dispatch(addProduct(k));
       });
   };
 
@@ -76,7 +78,7 @@ export const Productlist = () => {
           }
           return 0;
         });
-        settrackData(k);
+         dispatch(addProduct(k));
       });
   };
   const handlePrice = (val) => {};
@@ -113,7 +115,7 @@ export const Productlist = () => {
         <button onClick={handleSorthtol}>Sort Low To High</button>
       </div>
       <div className="itembox">
-        {trackdata.map((item) => (
+        {productss.map((item) => (
           <div className="boxstyle">
             <img src={item.img} alt="" className="imgstyle" srcset="" />
             <p> {item.name}</p>

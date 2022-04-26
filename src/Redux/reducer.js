@@ -5,11 +5,18 @@ const initialState = {
   basket: [],
   user: null,
   error: null,
+  productss: [],
  
 };
 
 export const basketReducer = (state = initialState, action) => {
   switch (action.type) {
+
+    case types.PRODUCTS:
+      return {
+        ...state,
+        productss: action.payload
+      }
 
     case types.ADD_TO_BASKET:
 
