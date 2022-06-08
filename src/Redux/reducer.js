@@ -4,8 +4,7 @@ const initialState = {
   loading: false,
   basket: [],
   user: null,
-  error: null,
-  productss: [],
+  error: null
  
 };
 
