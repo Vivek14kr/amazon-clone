@@ -26,7 +26,20 @@ export const Home = () => {
       <div className="home">
         <div className="home-container">
           <Slider images={bannerImages}/>
-         
+          <div className="home-row">
+            {products.slice(0, 2).map((item) => (
+              <Product
+                key={item.id}
+                id={item.id}
+                title={item.title}
+                price={item.price}
+                rating={item.rating}
+                image={item.image}
+                specification={item.specification}
+                detail={item.detail}
+              />
+            ))}
+          </div>
           <div className="home-row">
             {products.slice(2, 5).map((item) => (
               <Product
